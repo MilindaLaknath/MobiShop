@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 20, 2015 7:01:49 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hiben.Products" table="products" catalog="mobishop" optimistic-lock="version">
+        <id name="itmCode" type="java.lang.Integer">
+            <column name="itm_code" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="brand" class="hiben.Brand" fetch="select">
+            <column name="brand" not-null="true" />
+        </many-to-one>
+        <many-to-one name="category" class="hiben.Category" fetch="select">
+            <column name="product_type" not-null="true" />
+        </many-to-one>
+        <property name="prodCode" type="string">
+            <column name="prod_code" length="20" not-null="true" />
+        </property>
+        <property name="itmName" type="string">
+            <column name="itm_name" length="200" />
+        </property>
+        <property name="reorderLevel" type="java.lang.Integer">
+            <column name="reorder_level" />
+        </property>
+        <property name="active" type="java.lang.Integer">
+            <column name="active" />
+        </property>
+        <property name="imgUrl" type="string">
+            <column name="img_url" />
+        </property>
+        <set name="stocks" table="stock" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="itm_code" not-null="true" />
+            </key>
+            <one-to-many class="hiben.Stock" />
+        </set>
+        <set name="prodHasProps" table="prod_has_prop" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="itm_code" not-null="true" />
+            </key>
+            <one-to-many class="hiben.ProdHasProp" />
+        </set>
+    </class>
+</hibernate-mapping>

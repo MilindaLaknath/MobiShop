@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 20, 2015 7:01:49 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hiben.User" table="user" catalog="mobishop" optimistic-lock="version">
+        <id name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="personalDetails" class="hiben.PersonalDetails" fetch="select">
+            <column name="idpdetails" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userType" class="hiben.UserType" fetch="select">
+            <column name="guest_type" not-null="true" />
+        </many-to-one>
+        <property name="email" type="string">
+            <column name="email" not-null="true" unique="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" not-null="true" />
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time" length="0" not-null="true" />
+        </property>
+        <property name="verifyCode" type="string">
+            <column name="verify_code" length="45" />
+        </property>
+        <property name="nic" type="string">
+            <column name="nic" length="15" />
+        </property>
+        <set name="transactions" table="transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="hiben.Transaction" />
+        </set>
+        <set name="carts" table="cart" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="hiben.Cart" />
+        </set>
+        <set name="loginSessions" table="login_session" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="hiben.LoginSession" />
+        </set>
+        <set name="wishlists" table="wishlist" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="hiben.Wishlist" />
+        </set>
+    </class>
+</hibernate-mapping>

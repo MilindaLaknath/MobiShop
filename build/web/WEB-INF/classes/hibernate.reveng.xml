@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="mobishop"/>
+  <table-filter match-name="wish_prod"/>
+  <table-filter match-name="prod_property"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="user_type"/>
+  <table-filter match-name="prod_has_prop"/>
+  <table-filter match-name="category"/>
+  <table-filter match-name="privilage"/>
+  <table-filter match-name="intf_group"/>
+  <table-filter match-name="trans_prod"/>
+  <table-filter match-name="cart_prod"/>
+  <table-filter match-name="wishlist"/>
+  <table-filter match-name="personal_details"/>
+  <table-filter match-name="cart"/>
+  <table-filter match-name="payment_method"/>
+  <table-filter match-name="transaction"/>
+  <table-filter match-name="brand"/>
+  <table-filter match-name="address"/>
+  <table-filter match-name="products"/>
+  <table-filter match-name="property_group"/>
+  <table-filter match-name="stock"/>
+  <table-filter match-name="interfaces"/>
+  <table-filter match-name="login_session"/>
+  <table-filter match-name="invoice"/>
+</hibernate-reverse-engineering>

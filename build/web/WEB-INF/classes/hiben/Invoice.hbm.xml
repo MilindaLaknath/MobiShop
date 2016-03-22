@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 20, 2015 7:01:49 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hiben.Invoice" table="invoice" catalog="mobishop" optimistic-lock="version">
+        <id name="idinvoice" type="java.lang.Integer">
+            <column name="idinvoice" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="transaction" class="hiben.Transaction" fetch="select">
+            <column name="idtransaction" not-null="true" />
+        </many-to-one>
+        <property name="invoiceNo" type="string">
+            <column name="invoice_no" length="100" />
+        </property>
+        <property name="invoiceDate" type="timestamp">
+            <column name="invoice_date" length="0" not-null="true" />
+        </property>
+        <property name="amount" type="java.lang.Double">
+            <column name="amount" precision="22" scale="0" />
+        </property>
+        <property name="paid" type="java.lang.Double">
+            <column name="paid" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

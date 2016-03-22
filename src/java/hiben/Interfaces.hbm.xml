@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 20, 2015 7:01:49 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hiben.Interfaces" table="interfaces" catalog="mobishop" optimistic-lock="version">
+        <id name="idinterfaces" type="java.lang.Integer">
+            <column name="idinterfaces" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="intfGroup" class="hiben.IntfGroup" fetch="select">
+            <column name="intf_group" not-null="true" />
+        </many-to-one>
+        <property name="ifaseName" type="string">
+            <column name="ifase_name" length="45" />
+        </property>
+        <property name="url" type="string">
+            <column name="url" />
+        </property>
+    </class>
+</hibernate-mapping>

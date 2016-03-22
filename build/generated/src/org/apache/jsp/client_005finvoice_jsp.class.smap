@@ -1,0 +1,22 @@
+SMAP
+client_005finvoice_jsp.java
+JSP
+*S JSP
+*F
++ 0 client_invoice.jsp
+client_invoice.jsp
++ 1 header.jsp
+partials/header.jsp
++ 2 commonjs.jsp
+partials/commonjs.jsp
+*L
+5,12:54
+5#1,24:66
+16#0,8:89
+23,24:97
+46,102:121
+147,4:223
+150,3:227
+5#2,21:230
+152#0,10:251
+*E

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 20, 2015 7:01:49 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hiben.Transaction" table="transaction" catalog="mobishop" optimistic-lock="version">
+        <id name="idtransaction" type="java.lang.Integer">
+            <column name="idtransaction" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="paymentMethod" class="hiben.PaymentMethod" fetch="select">
+            <column name="idpmethod">
+                <comment>Payment Method</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="user" class="hiben.User" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        <property name="totAmount" type="java.lang.Double">
+            <column name="tot_amount" precision="22" scale="0" />
+        </property>
+        <property name="totItms" type="java.lang.Integer">
+            <column name="tot_itms" />
+        </property>
+        <property name="shipingCost" type="java.lang.Double">
+            <column name="shiping_cost" precision="22" scale="0" />
+        </property>
+        <property name="transDate" type="timestamp">
+            <column name="trans_date" length="0" not-null="true" />
+        </property>
+        <property name="isSend" type="java.lang.Integer">
+            <column name="is_send" />
+        </property>
+        <set name="invoices" table="invoice" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idtransaction" not-null="true" />
+            </key>
+            <one-to-many class="hiben.Invoice" />
+        </set>
+        <set name="transProds" table="trans_prod" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idtransaction" not-null="true" />
+            </key>
+            <one-to-many class="hiben.TransProd" />
+        </set>
+    </class>
+</hibernate-mapping>

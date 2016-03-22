@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 20, 2015 7:01:49 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hiben.PersonalDetails" table="personal_details" catalog="mobishop" optimistic-lock="version">
+        <id name="idpdetails" type="java.lang.Integer">
+            <column name="idpdetails" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="address" class="hiben.Address" fetch="select">
+            <column name="address" not-null="true" />
+        </many-to-one>
+        <property name="FName" type="string">
+            <column name="f_name" length="50" />
+        </property>
+        <property name="LName" type="string">
+            <column name="l_name" length="50" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" length="12" />
+        </property>
+        <set name="users" table="user" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpdetails" not-null="true" />
+            </key>
+            <one-to-many class="hiben.User" />
+        </set>
+    </class>
+</hibernate-mapping>

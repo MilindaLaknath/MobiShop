@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 20, 2015 7:01:49 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hiben.LoginSession" table="login_session" catalog="mobishop" optimistic-lock="version">
+        <id name="idloginSession" type="java.lang.Integer">
+            <column name="idlogin_session" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="hiben.User" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        <property name="ipAdd" type="string">
+            <column name="ip_add" length="20" not-null="true" />
+        </property>
+        <property name="loginTime" type="timestamp">
+            <column name="login_time" length="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

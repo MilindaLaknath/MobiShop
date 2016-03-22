@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 20, 2015 7:01:49 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hiben.WishProd" table="wish_prod" catalog="mobishop" optimistic-lock="version">
+        <id name="idwishProd" type="java.lang.Integer">
+            <column name="idwish_prod" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="stock" class="hiben.Stock" fetch="select">
+            <column name="batchid" not-null="true" />
+        </many-to-one>
+        <many-to-one name="wishlist" class="hiben.Wishlist" fetch="select">
+            <column name="idwishlist" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

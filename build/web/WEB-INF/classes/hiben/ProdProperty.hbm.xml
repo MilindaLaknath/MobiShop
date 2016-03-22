@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 20, 2015 7:01:49 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hiben.ProdProperty" table="prod_property" catalog="mobishop" optimistic-lock="version">
+        <id name="idprodProperty" type="java.lang.Integer">
+            <column name="idprod_property" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="propertyGroup" class="hiben.PropertyGroup" fetch="select">
+            <column name="property_group_idpro_grop" not-null="true" />
+        </many-to-one>
+        <property name="propertyName" type="string">
+            <column name="property_name" length="100" />
+        </property>
+        <set name="prodHasProps" table="prod_has_prop" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idprod_property" not-null="true" />
+            </key>
+            <one-to-many class="hiben.ProdHasProp" />
+        </set>
+    </class>
+</hibernate-mapping>

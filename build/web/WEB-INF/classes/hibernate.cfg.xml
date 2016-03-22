@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mobishop?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <mapping resource="hiben/Invoice.hbm.xml"/>
+    <mapping resource="hiben/Category.hbm.xml"/>
+    <mapping resource="hiben/PropertyGroup.hbm.xml"/>
+    <mapping resource="hiben/Privilage.hbm.xml"/>
+    <mapping resource="hiben/Transaction.hbm.xml"/>
+    <mapping resource="hiben/Products.hbm.xml"/>
+    <mapping resource="hiben/User.hbm.xml"/>
+    <mapping resource="hiben/Cart.hbm.xml"/>
+    <mapping resource="hiben/Wishlist.hbm.xml"/>
+    <mapping resource="hiben/Address.hbm.xml"/>
+    <mapping resource="hiben/LoginSession.hbm.xml"/>
+    <mapping resource="hiben/Stock.hbm.xml"/>
+    <mapping resource="hiben/ProdProperty.hbm.xml"/>
+    <mapping resource="hiben/WishProd.hbm.xml"/>
+    <mapping resource="hiben/IntfGroup.hbm.xml"/>
+    <mapping resource="hiben/PersonalDetails.hbm.xml"/>
+    <mapping resource="hiben/PaymentMethod.hbm.xml"/>
+    <mapping resource="hiben/CartProd.hbm.xml"/>
+    <mapping resource="hiben/ProdHasProp.hbm.xml"/>
+    <mapping resource="hiben/Interfaces.hbm.xml"/>
+    <mapping resource="hiben/UserType.hbm.xml"/>
+    <mapping resource="hiben/Brand.hbm.xml"/>
+    <mapping resource="hiben/TransProd.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
