@@ -21,10 +21,10 @@ public class EmailSessionBean {
 
     private int port = 465;
     private String host = "smtp.gmail.com";
-    private String from = "mobyshopme@gmail.com";
+    private String from = "email@gmail.com";
     private boolean auth = true;
-    private String username = "mobyshopme@gmail.com";
-    private String password = "AJDesViVa";
+    private String username = "email@gmail.com";
+    private String password = "password";
     private Protocol protocol = Protocol.SMTPS;
     private boolean debug = true;
 
